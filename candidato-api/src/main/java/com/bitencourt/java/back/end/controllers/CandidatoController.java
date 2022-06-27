@@ -18,34 +18,55 @@ import org.springframework.web.multipart.MultipartFile;
 import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
+import com.bitencourt.java.back.end.domain.dtos.ErrorDTO;
 import com.bitencourt.java.back.end.domain.dtos.MessageSucessoDTO;
 import com.bitencourt.java.back.end.domain.dtos.requests.CandidatoRequestDTO;
 import com.bitencourt.java.back.end.domain.dtos.responses.CandidatoResponseDTO;
 import com.bitencourt.java.back.end.services.CandidatoService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
+@Api(value = "Candidato")
 @RestController
 public class CandidatoController {
 	
 	@Autowired
 	CandidatoService candidatoService;
 	
-	@GetMapping("/")
-	public String getMensagem() {
-		return "Spring boot is working!";
-	}
-	
+	@ApiOperation(notes = "Endipoint para listar todos os candidatos.", value = "Listar candidatos", tags = {"Recurso para listar todos os candidatos."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Lista consultada com sucesso.", response = CandidatoResponseDTO.class, responseContainer = "List"),
+	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })	
 	@GetMapping("/candidato")
 	List<CandidatoResponseDTO> findAll() { 
 		return candidatoService.findAll();
 	}
 	
+	@ApiOperation(notes = "Endipoint para consultar um candidato pelo ID.", value = "Consultar candidato", tags = {"Recurso para consultar um candidato."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Candidato consultado com sucesso.", response = CandidatoResponseDTO.class),
+	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })		
 	@GetMapping("/candidato/{id}")
 	CandidatoResponseDTO findById(@PathVariable long id) { 
 		return candidatoService.findById(id);
 	}
 	
+	@ApiOperation(notes = "Endipoint para criar um novo candidato.", value = "Cadastrar candidato", tags = {"Recurso para cadastrar um candidato."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Candidato cadastrado com sucesso.", response = CandidatoResponseDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })	
 	@PostMapping("/candidato")
 	CandidatoResponseDTO newCandidato(
 			@ApiParam(value = "email de login do candidato", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "email") String email,
@@ -54,16 +75,37 @@ public class CandidatoController {
 		return candidatoService.save(candidatoDTO, email, senha);
 	}
 	
+	@ApiOperation(notes = "Endipoint para editar as informações de um candidato.", value = "Editar candidato", tags = {"Recurso para editar um candidato."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Candidato editado com sucesso.", response = CandidatoResponseDTO.class),
+	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })	
 	@PatchMapping("/candidato/{id}")
 	CandidatoResponseDTO updateCandidato(@RequestBody CandidatoRequestDTO candidatoDTO, @PathVariable long id) {
 		return candidatoService.update(candidatoDTO, id);
 	}
 	
+	@ApiOperation(notes = "Endipoint para remover um candidato.", value = "Deletar candidato", tags = {"Recurso para deletar um candidato."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Candidato deletado com sucesso.", response = MessageSucessoDTO.class),
+	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })
 	@DeleteMapping("/candidato/{id}")
 	MessageSucessoDTO deleteCandidato(@PathVariable long id) {
 		return candidatoService.delete(id);
 	}
 	
+	@ApiOperation(notes = "Endipoint para gravar um currículo para um candidato. Para editar um currículo, basta inserir um novo.", value = "Inserir currículo candidato", tags = {"Recurso para inserir um currículo."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Currículo gravado com sucesso.", response = CandidatoResponseDTO.class),
+	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })
 	@PostMapping(path = "/curriculo/{id}")
 	public CandidatoResponseDTO uploadFile(@RequestParam("file") MultipartFile file, @PathVariable long id) throws IOException {
 		String constr = "DefaultEndpointsProtocol=https;"
@@ -83,6 +125,13 @@ public class CandidatoController {
 				
 	}
 	
+	@ApiOperation(notes = "Endipoint para remover o currículo de um candidato.", value = "Remover currículo candidato", tags = {"Recurso para remover um currículo."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Currículo deletado com sucesso.", response = CandidatoResponseDTO.class),
+	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })
 	@DeleteMapping("/curriculo/{id}")
 	CandidatoResponseDTO deleteCurriculo(@PathVariable long id) {
 		return candidatoService.updateCurriculo(id, null);

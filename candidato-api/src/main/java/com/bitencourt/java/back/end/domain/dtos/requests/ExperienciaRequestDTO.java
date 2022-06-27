@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "Experiencia")
+@ApiModel(value = "ExperienciaRequest")
 public class ExperienciaRequestDTO {
 	@NotNull
 	@ApiModelProperty(value = "flag que indica o que se deseja fazer com essa experiência específica.", required = true)
 	FlagsEnum flag;
 	
-	@ApiModelProperty(value = "Identificador da experiencia. Torna-se obrigatório caso  a 'flag' seja DELETE ou UPDATE.", required = false)
+	@ApiModelProperty(value = "Identificador da experiencia. Torna-se obrigatório caso  a 'flag' seja DELETE ou UPDATE. Será desconsiderado caso a flag seja SAVE.", required = false)
 	String experienciaId;
 	
 	@NotNull
@@ -32,10 +32,10 @@ public class ExperienciaRequestDTO {
 	private String nomeEmpresa;
 	
 	@NotNull
-	@ApiModelProperty(value = "Data de início da experiência.", required = true, example = "16/05/2010")
+	@ApiModelProperty(value = "Data de início da experiência.", required = true, example = "2010-05-16")
 	private Date dataInicio;
 	
-	@ApiModelProperty(value = "Data de término da experiência. Deve ser enviado nulo caso este seja o cargo atual do candidato.", required = false, example = "20/09/2020")
+	@ApiModelProperty(value = "Data de término da experiência. Deve ser enviado nulo caso este seja o cargo atual do candidato.", required = false, example = "2020-09-20")
 	private Date dataFim;
 	
 	@ApiModelProperty(value = "Descrição da experiência.", required = false, example = "Desenvolvimento de atividades relacionadas a desenvolvimento de software.")

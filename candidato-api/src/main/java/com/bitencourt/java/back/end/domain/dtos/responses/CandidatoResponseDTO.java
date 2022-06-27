@@ -10,11 +10,13 @@ import com.bitencourt.java.back.end.domain.entities.Candidato;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
 @JsonInclude(Include.NON_NULL)
+@ApiModel(value = "CandidatoResponse")
 public class CandidatoResponseDTO {
 
 	@ApiModelProperty(value = "id do candidato.", required = true, example = "127")
@@ -37,7 +39,7 @@ public class CandidatoResponseDTO {
 	@ApiModelProperty(value = "URL pública onde pode ser acessado o currículo do candidato.", required = false)
 	private String curriculoUrl;
 	
-	@ApiModelProperty(value = "Lista de experiências cadastaradas para o candidato.", required = false)
+	@ApiModelProperty(value = "Lista de experiências cadastradas para o candidato.", required = false)
 	List<ExperienciaResponseDTO> experiencias;
 	
 	@ApiModelProperty(value = "Lista de referências cadastradas para o candidato.", required = false)

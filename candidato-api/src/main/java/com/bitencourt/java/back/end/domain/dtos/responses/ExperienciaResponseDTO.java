@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "Experiencia")
 @JsonInclude(Include.NON_NULL)
+@ApiModel(value = "ExperienciaResponse")
 public class ExperienciaResponseDTO {
 	
 	@ApiModelProperty(value = "identificador da experiência.", required = true, example = "54896")
@@ -28,7 +28,7 @@ public class ExperienciaResponseDTO {
 	@ApiModelProperty(value = "Nome da empresa onde ocorreu a respectiva experiência.", required = false, example = "TOTVS")
 	private String nomeEmpresa;
 	
-	@ApiModelProperty(value = "Data de início da experiência.", required = true, example = "16/05/2010")
+	@ApiModelProperty(value = "Data de início da experiência.", required = true, example = "2010-02-20T00:00:00.000+00:00")
 	private Date dataInicio;
 	
 	@ApiModelProperty(value = "Data de término da experiência. Será retornado nulo caso este seja o cargo atual do candidato.", required = false, example = "20/09/2020")

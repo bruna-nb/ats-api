@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(value = "Referencia")
+@ApiModel(value = "ReferenciaResponse")
 @JsonInclude(Include.NON_NULL)
 public class ReferenciaResponseDTO {
 	

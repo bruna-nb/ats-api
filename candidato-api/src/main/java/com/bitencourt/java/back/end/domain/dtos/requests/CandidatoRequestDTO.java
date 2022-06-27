@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-@ApiModel(value = "Candidato")
+@ApiModel(value = "CandidatoRequest")
 @Data
 public class CandidatoRequestDTO {
 
@@ -25,7 +25,7 @@ public class CandidatoRequestDTO {
 	@Size(min = 0, max = 400)
 	private String descricao;
 	
-	@ApiModelProperty(value = "Lista de experiências cadastaradas para o candidato.", required = false)
+	@ApiModelProperty(value = "Lista de experiências cadastradas para o candidato.", required = false)
 	List<ExperienciaRequestDTO> experiencias;
 	
 	@ApiModelProperty(value = "Lista de referências cadastradas para o candidato.", required = false)
