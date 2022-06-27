@@ -1,0 +1,13 @@
+com\bitencourt\java\back\end\repositories\RecrutadorRepository.class
+com\bitencourt\java\back\end\domain\dtos\MessageSucessoDTO.class
+com\bitencourt\java\back\end\exceptions\advice\RecrutadorControllerAdvice.class
+com\bitencourt\java\back\end\controllers\RecrutadorController.class
+com\bitencourt\java\back\end\domain\dtos\requests\RecrutadorRequestDTO.class
+com\bitencourt\java\back\end\domain\dtos\responses\RecrutadorResponseDTO.class
+com\bitencourt\java\back\end\exceptions\CampoErrorSchemaException.class
+com\bitencourt\java\back\end\services\RecrutadorService.class
+com\bitencourt\java\back\end\RecrutadorApp.class
+com\bitencourt\java\back\end\domain\entities\Recrutador.class
+com\bitencourt\java\back\end\domain\dtos\ErrorDTO.class
+com\bitencourt\java\back\end\exceptions\RecrutadorDuplicadoException.class
+com\bitencourt\java\back\end\exceptions\RecrutadorNotFoundException.class

@@ -71,7 +71,7 @@
 	</dependencies>
 
 	<properties>
-		<docker.image.prefix>ats</docker.image.prefix>
+		<docker.image.prefix>brunanb</docker.image.prefix>
 	</properties>
 	<build>
 		<plugins>
