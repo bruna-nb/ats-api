@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-@ApiModel(value = "Candidato")
+@ApiModel(value = "RecrutadorRequest")
 @Data
 public class RecrutadorRequestDTO {
 

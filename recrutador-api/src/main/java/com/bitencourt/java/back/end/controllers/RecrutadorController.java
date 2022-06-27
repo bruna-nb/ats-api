@@ -29,7 +29,7 @@ public class RecrutadorController {
 	@Autowired
 	RecrutadorService recrutadorService;
 	
-	@ApiOperation(notes = "Endipoint para listar todos os recrutadores.", value = "Listar recrutadores", tags = {"Recurso para listar todos os recrutadores."})
+	@ApiOperation(notes = "Endpoint para listar todos os recrutadores.", value = "Listar recrutadores", tags = {"Recurso para listar todos os recrutadores."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Lista consultada com sucesso.", response = RecrutadorResponseDTO.class, responseContainer = "List"),
 	               @ApiResponse(code = 404, message = "Nenhum recrutador encontrado.", response = ErrorDTO.class),
@@ -41,7 +41,7 @@ public class RecrutadorController {
 		return recrutadorService.findAll();
 	}
 	
-	@ApiOperation(notes = "Endipoint para consultar um recrutador pelo ID.", value = "Consultar recrutador", tags = {"Recurso para consultar um recrutador."})
+	@ApiOperation(notes = "Endpoint para consultar um recrutador pelo ID.", value = "Consultar recrutador", tags = {"Recurso para consultar um recrutador."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Recrutador consultado com sucesso.", response = RecrutadorResponseDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhum recrutador encontrado.", response = ErrorDTO.class),
@@ -53,7 +53,7 @@ public class RecrutadorController {
 		return recrutadorService.findById(id);
 	}
 	
-	@ApiOperation(notes = "Endipoint para criar um novo recrutador.", value = "Cadastrar recrutador", tags = {"Recurso para cadastrar um recrutador."})
+	@ApiOperation(notes = "Endpoint para criar um novo recrutador.", value = "Cadastrar recrutador", tags = {"Recurso para cadastrar um recrutador."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Candidato cadastrado com sucesso.", response = RecrutadorResponseDTO.class),
 	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
@@ -67,7 +67,7 @@ public class RecrutadorController {
 		return recrutadorService.save(recrutadorDTO, email, senha);
 	}
 	
-	@ApiOperation(notes = "Endipoint para editar as informações de um recrutador.", value = "Editar recrutador", tags = {"Recurso para editar um recrutador."})
+	@ApiOperation(notes = "Endpoint para editar as informações de um recrutador.", value = "Editar recrutador", tags = {"Recurso para editar um recrutador."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Candidato editado com sucesso.", response = RecrutadorResponseDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhum recrutador encontrado.", response = ErrorDTO.class),
@@ -79,7 +79,7 @@ public class RecrutadorController {
 		return recrutadorService.update(recrutadorDTO, id);
 	}
 	
-	@ApiOperation(notes = "Endipoint para remover um recrutador.", value = "Deletar recrutador", tags = {"Recurso para deletar um recrutador."})
+	@ApiOperation(notes = "Endpoint para remover um recrutador.", value = "Deletar recrutador", tags = {"Recurso para deletar um recrutador."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Recrutador deletado com sucesso.", response = MessageSucessoDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhum recrutador encontrado.", response = ErrorDTO.class),

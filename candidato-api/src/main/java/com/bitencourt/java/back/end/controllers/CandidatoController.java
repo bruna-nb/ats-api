@@ -37,7 +37,7 @@ public class CandidatoController {
 	@Autowired
 	CandidatoService candidatoService;
 	
-	@ApiOperation(notes = "Endipoint para listar todos os candidatos.", value = "Listar candidatos", tags = {"Recurso para listar todos os candidatos."})
+	@ApiOperation(notes = "Endpoint para listar todos os candidatos.", value = "Listar candidatos", tags = {"Recurso para listar todos os candidatos."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Lista consultada com sucesso.", response = CandidatoResponseDTO.class, responseContainer = "List"),
 	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
@@ -49,7 +49,7 @@ public class CandidatoController {
 		return candidatoService.findAll();
 	}
 	
-	@ApiOperation(notes = "Endipoint para consultar um candidato pelo ID.", value = "Consultar candidato", tags = {"Recurso para consultar um candidato."})
+	@ApiOperation(notes = "Endpoint para consultar um candidato pelo ID.", value = "Consultar candidato", tags = {"Recurso para consultar um candidato."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Candidato consultado com sucesso.", response = CandidatoResponseDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
@@ -61,7 +61,7 @@ public class CandidatoController {
 		return candidatoService.findById(id);
 	}
 	
-	@ApiOperation(notes = "Endipoint para criar um novo candidato.", value = "Cadastrar candidato", tags = {"Recurso para cadastrar um candidato."})
+	@ApiOperation(notes = "Endpoint para criar um novo candidato.", value = "Cadastrar candidato", tags = {"Recurso para cadastrar um candidato."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Candidato cadastrado com sucesso.", response = CandidatoResponseDTO.class),
 	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
@@ -75,7 +75,7 @@ public class CandidatoController {
 		return candidatoService.save(candidatoDTO, email, senha);
 	}
 	
-	@ApiOperation(notes = "Endipoint para editar as informações de um candidato.", value = "Editar candidato", tags = {"Recurso para editar um candidato."})
+	@ApiOperation(notes = "Endpoint para editar as informações de um candidato.", value = "Editar candidato", tags = {"Recurso para editar um candidato."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Candidato editado com sucesso.", response = CandidatoResponseDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
@@ -87,7 +87,7 @@ public class CandidatoController {
 		return candidatoService.update(candidatoDTO, id);
 	}
 	
-	@ApiOperation(notes = "Endipoint para remover um candidato.", value = "Deletar candidato", tags = {"Recurso para deletar um candidato."})
+	@ApiOperation(notes = "Endpoint para remover um candidato.", value = "Deletar candidato", tags = {"Recurso para deletar um candidato."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Candidato deletado com sucesso.", response = MessageSucessoDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
@@ -99,7 +99,7 @@ public class CandidatoController {
 		return candidatoService.delete(id);
 	}
 	
-	@ApiOperation(notes = "Endipoint para gravar um currículo para um candidato. Para editar um currículo, basta inserir um novo.", value = "Inserir currículo candidato", tags = {"Recurso para inserir um currículo."})
+	@ApiOperation(notes = "Endpoint para gravar um currículo para um candidato. Para editar um currículo, basta inserir um novo.", value = "Inserir currículo candidato", tags = {"Recurso para inserir um currículo."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Currículo gravado com sucesso.", response = CandidatoResponseDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
@@ -125,7 +125,7 @@ public class CandidatoController {
 				
 	}
 	
-	@ApiOperation(notes = "Endipoint para remover o currículo de um candidato.", value = "Remover currículo candidato", tags = {"Recurso para remover um currículo."})
+	@ApiOperation(notes = "Endpoint para remover o currículo de um candidato.", value = "Remover currículo candidato", tags = {"Recurso para remover um currículo."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Currículo deletado com sucesso.", response = CandidatoResponseDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
