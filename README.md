@@ -1,5 +1,5 @@
 # ATS-API
-## Descrição do ptojeto
+## Descrição do projeto
 Este proveto foi desenvolvido durante o desafio para um processo seletivo e tem por objetivo ser o back-end de uma aplicação web do tipo ats.
 
 ## Funcionalidades
