@@ -93,7 +93,7 @@ public class RecrutadorController {
 	}
 	
 	@PutMapping("/recrutador/login")
-	MessageSucessoDTO loginRecrutador(
+	RecrutadorResponseDTO loginRecrutador(
 			@ApiParam(value = "email de login do recrutador", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "email") String email,
 			@ApiParam(value = "senha do recrutador em encode Base64", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "base64-password") String senha) {
 		return recrutadorService.login(email, senha);
