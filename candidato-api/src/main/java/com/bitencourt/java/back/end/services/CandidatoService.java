@@ -176,5 +176,15 @@ public class CandidatoService {
 			return candidatos.stream().map(CandidatoResponseDTO::convert).collect(Collectors.toList());		}
 		throw new CandidatoNotFoundException();
 	}
+	
+	public MessageSucessoDTO login(String email, String senha) {
+		Candidato candidato = candidatoRepository.findByEmail(email);
+		if (Objects.nonNull(candidato)
+				&& candidato.getEmail().equals(email)
+				&& candidato.getSenha().equals(senha)) {
+			return new MessageSucessoDTO("Login efetuado com sucesso");			
+		}
+		throw new CandidatoNotFoundException();
+	}
 
 }

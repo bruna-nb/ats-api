@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
@@ -89,6 +90,13 @@ public class RecrutadorController {
 	@DeleteMapping("/recrutador/{id}")
 	MessageSucessoDTO deleteRecrutador(@PathVariable long id) {
 		return recrutadorService.delete(id);
+	}
+	
+	@PutMapping("/recrutador/login")
+	MessageSucessoDTO loginRecrutador(
+			@ApiParam(value = "email de login do recrutador", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "email") String email,
+			@ApiParam(value = "senha do recrutador em encode Base64", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "base64-password") String senha) {
+		return recrutadorService.login(email, senha);
 	}
 
 }

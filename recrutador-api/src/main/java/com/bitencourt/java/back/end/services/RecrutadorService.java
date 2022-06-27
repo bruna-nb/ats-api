@@ -82,4 +82,14 @@ public class RecrutadorService {
 		throw new RecrutadorNotFoundException();
 	}
 
+	public MessageSucessoDTO login(String email, String senha) {
+		Recrutador recrutador = recrutadorRepository.findByEmail(email);
+		if (Objects.nonNull(recrutador)
+				&& recrutador.getEmail().equals(email)
+				&& recrutador.getSenha().equals(senha)) {
+			return new MessageSucessoDTO("Login efetuado com sucesso");			
+		}
+		throw new RecrutadorNotFoundException();
+	}
+
 }

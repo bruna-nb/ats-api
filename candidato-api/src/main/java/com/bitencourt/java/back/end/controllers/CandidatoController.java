@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -136,6 +137,13 @@ public class CandidatoController {
 	CandidatoResponseDTO deleteCurriculo(@PathVariable long id) {
 		return candidatoService.updateCurriculo(id, null);
 		
+	}
+	
+	@PutMapping("/login")
+	MessageSucessoDTO loginCandidato(
+			@ApiParam(value = "email de login do recrutador ou candidato", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "email") String email,
+			@ApiParam(value = "senha do recrutador ou candidato em encode Base64", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "base64-password") String senha) {
+		return candidatoService.login(email, senha);
 	}
 
 }
