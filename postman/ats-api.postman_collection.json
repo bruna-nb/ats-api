@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "fb9189ad-008e-49d1-a728-2853c33649f6",
+		"name": "ats-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "candidato-api",
+			"item": [
+				{
+					"name": "/curriculo/upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "candidato1ex@example.com",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "base64-password",
+								"value": "c2VuaGF0ZXN0ZWNhbmQwMQ==",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-candidato}}/curriculo/upload/4",
+							"host": [
+								"{{local-candidato}}"
+							],
+							"path": [
+								"curriculo",
+								"upload",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "candidato/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-candidato}}/candidato",
+							"host": [
+								"{{local-candidato}}"
+							],
+							"path": [
+								"candidato"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "candidato/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-candidato}}/candidato/16",
+							"host": [
+								"{{local-candidato}}"
+							],
+							"path": [
+								"candidato",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "candidato/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local-candidato}}/candidato/15",
+							"host": [
+								"{{local-candidato}}"
+							],
+							"path": [
+								"candidato",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "candidato/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "candidato2@exemplo.com",
+								"type": "text"
+							},
+							{
+								"key": "base64-password",
+								"value": "c2VuaGF0ZXN0ZWNhbmQwMQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Candidato teste 02\",\r\n    \"cpf\": \"15617145056\",\r\n    \"telefone\": \"10333526498\",\r\n    \"experiencias\": [\r\n        {\r\n            \"flag\": \"SAVE\",\r\n            \"cargo\": \"jr\",\r\n            \"nomeEmpresa\": \"TOTVS\",\r\n            \"dataInicio\": \"2010-02-20\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-candidato}}/candidato",
+							"host": [
+								"{{local-candidato}}"
+							],
+							"path": [
+								"candidato"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "candidato/id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"telefone\": \"25333526498\",\r\n    \"experiencias\": [\r\n        {\r\n            \"flag\": \"UPDATE\",\r\n            \"experienciaId\": \"PbEwTHXleflCrrXQZhsT\",\r\n            \"cargo\": \"pleno\",\r\n            \"nomeEmpresa\": \"TOTVS\",\r\n            \"dataInicio\": \"2010-02-20T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-candidato}}/candidato/16",
+							"host": [
+								"{{local-candidato}}"
+							],
+							"path": [
+								"candidato",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "email",
+								"value": "candidato2@exemplo.com",
+								"type": "text"
+							},
+							{
+								"key": "base64-password",
+								"value": "c2VuaGF0ZXN0ZWNhbmQwMQ==",
+								"type": "text"
+							},
+							{
+								"key": "tipo-login",
+								"value": "CANDIDATO",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{local-candidato}}/login",
+							"host": [
+								"{{local-candidato}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recrutador-api",
+			"item": [
+				{
+					"name": "recrutador/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-recrutador}}/recrutador",
+							"host": [
+								"{{local-recrutador}}"
+							],
+							"path": [
+								"recrutador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recrutador/ id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-recrutador}}/recrutador/1",
+							"host": [
+								"{{local-recrutador}}"
+							],
+							"path": [
+								"recrutador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recrutador",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "recrutador3@exemplo.com",
+								"type": "text"
+							},
+							{
+								"key": "base64-password",
+								"value": "c2VuaGF0ZXN0ZWNhbmQwMQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"recrutador exemplo 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-recrutador}}/recrutador",
+							"host": [
+								"{{local-recrutador}}"
+							],
+							"path": [
+								"recrutador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recrutador/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-recrutador}}/recrutador/1",
+							"host": [
+								"{{local-recrutador}}"
+							],
+							"path": [
+								"recrutador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "email",
+								"value": "candidato2@exemplo.com",
+								"type": "text"
+							},
+							{
+								"key": "base64-password",
+								"value": "c2VuaGF0ZXN0ZWNhbmQwMQ==",
+								"type": "text"
+							},
+							{
+								"key": "tipo-login",
+								"value": "CANDIDATO",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{local-recrutador}}/login",
+							"host": [
+								"{{local-recrutador}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recrutador/id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"recrutador exemplo 1 editado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-recrutador}}/recrutador/2",
+							"host": [
+								"{{local-recrutador}}"
+							],
+							"path": [
+								"recrutador",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vaga-api",
+			"item": [
+				{
+					"name": "vaga/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-vaga}}/vaga",
+							"host": [
+								"{{local-vaga}}"
+							],
+							"path": [
+								"vaga"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vaga/ id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-vaga}}/vaga/1",
+							"host": [
+								"{{local-vaga}}"
+							],
+							"path": [
+								"vaga",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vaga/vagaByRecrutador/idRecrutador",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-vaga}}/vaga/vagaByRecrutador/3",
+							"host": [
+								"{{local-vaga}}"
+							],
+							"path": [
+								"vaga",
+								"vagaByRecrutador",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vaga",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "recrutador1@exemplo.com",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "base64-password",
+								"value": "c2VuaGF0ZXN0ZWNhbmQwMQ==",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"vaga devOps teste 2\",\r\n    \"descricao\": \"vaga teste devOps\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-vaga}}/vaga/3",
+							"host": [
+								"{{local-vaga}}"
+							],
+							"path": [
+								"vaga",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vaga/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-vaga}}/vaga/1",
+							"host": [
+								"{{local-vaga}}"
+							],
+							"path": [
+								"vaga",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vaga/id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"titulo editado vaga 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-vaga}}/vaga/2",
+							"host": [
+								"{{local-vaga}}"
+							],
+							"path": [
+								"vaga",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ats-main-api",
+			"item": [
+				{
+					"name": "aplicacao/aplicacaoByCandidato/idCandidato",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-aplicacao}}//aplicacao/aplicacaoByCandidato/16",
+							"host": [
+								"{{local-aplicacao}}"
+							],
+							"path": [
+								"",
+								"aplicacao",
+								"aplicacaoByCandidato",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aplicacao/aplicacaoByVaga/idVaga",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-aplicacao}}//aplicacao/aplicacaoByVaga/16",
+							"host": [
+								"{{local-aplicacao}}"
+							],
+							"path": [
+								"",
+								"aplicacao",
+								"aplicacaoByVaga",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aplicacao/id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"CONCLUIDA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-aplicacao}}/aplicacao/1",
+							"host": [
+								"{{local-aplicacao}}"
+							],
+							"path": [
+								"aplicacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aplicacao/idVaga/idCandidato Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"ATIVA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-aplicacao}}/aplicacao/6/16",
+							"host": [
+								"{{local-aplicacao}}"
+							],
+							"path": [
+								"aplicacao",
+								"6",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vaga/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-aplicacao}}/aplicacao/1",
+							"host": [
+								"{{local-aplicacao}}"
+							],
+							"path": [
+								"aplicacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
