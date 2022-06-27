@@ -15,14 +15,14 @@ import lombok.Data;
 @ApiModel("RecrutadorResponse")
 public class RecrutadorResponseDTO {
 
-	@ApiModelProperty(value = "id do candidato.", required = true, example = "127")
+	@ApiModelProperty(value = "id do recrutador.", required = true, example = "127")
 	private long id;
 	
-	@ApiModelProperty(value = "Nome completo do candidato.", required = true, example = "João da Silva")
+	@ApiModelProperty(value = "Nome completo do recrutador.", required = true, example = "João da Silva")
 	@Size(min = 4, max = 90)
 	private String nome;
 	
-	@ApiModelProperty(value = "E-mail de login do candidato.", required = true, example = "jao.dasilva@exemplo.com")
+	@ApiModelProperty(value = "E-mail de login do recrutador.", required = true, example = "jao.dasilva@exemplo.com")
 	private String email;
 	
 	public static RecrutadorResponseDTO convert(Recrutador recrutador) {
