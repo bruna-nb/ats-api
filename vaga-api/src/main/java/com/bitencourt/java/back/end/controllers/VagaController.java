@@ -27,7 +27,7 @@ public class VagaController {
 	@Autowired
 	VagaService vagaService;
 	
-	@ApiOperation(notes = "Endipoint para listar todas as vagas.", value = "Listar vagas", tags = {"Recurso para listar todas as vagas."})
+	@ApiOperation(notes = "Endpoint para listar todas as vagas.", value = "Listar vagas", tags = {"Recurso para listar todas as vagas."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Lista consultada com sucesso.", response = VagaResponseDTO.class, responseContainer = "List"),
 	               @ApiResponse(code = 404, message = "Nenhuma vaga encontrada.", response = ErrorDTO.class),
@@ -39,7 +39,7 @@ public class VagaController {
 		return vagaService.findAll();
 	}
 	
-	@ApiOperation(notes = "Endipoint para listar todas as vagas.", value = "Listar vagas", tags = {"Recurso para listar todas as vagas."})
+	@ApiOperation(notes = "Endpoint para listar todas as vagas.", value = "Listar vagas", tags = {"Recurso para listar todas as vagas."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Lista consultada com sucesso.", response = VagaResponseDTO.class, responseContainer = "List"),
 	               @ApiResponse(code = 404, message = "Nenhuma vaga encontrada.", response = ErrorDTO.class),
@@ -51,7 +51,7 @@ public class VagaController {
 		return vagaService.findAllByRecrutador(idRecrutador);
 	}
 	
-	@ApiOperation(notes = "Endipoint para consultar uma vaga pelo ID.", value = "Consultar vaga", tags = {"Recurso para consultar uma vaga."})
+	@ApiOperation(notes = "Endpoint para consultar uma vaga pelo ID.", value = "Consultar vaga", tags = {"Recurso para consultar uma vaga."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Vaga consultada com sucesso.", response = VagaResponseDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhuma vaga encontrada.", response = ErrorDTO.class),
@@ -63,7 +63,7 @@ public class VagaController {
 		return vagaService.findById(id);
 	}
 	
-	@ApiOperation(notes = "Endipoint para criar uma nova vaga.", value = "Cadastrar vaga", tags = {"Recurso para cadastrar uma vaga."})
+	@ApiOperation(notes = "Endpoint para criar uma nova vaga.", value = "Cadastrar vaga", tags = {"Recurso para cadastrar uma vaga."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Vaga cadastrada com sucesso.", response = VagaResponseDTO.class),
 	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
@@ -75,7 +75,7 @@ public class VagaController {
 		return vagaService.save(vagaDTO, idRecrutador);
 	}
 	
-	@ApiOperation(notes = "Endipoint para editar as informações de uma vaga.", value = "Editar vaga", tags = {"Recurso para editar uma vaga."})
+	@ApiOperation(notes = "Endpoint para editar as informações de uma vaga.", value = "Editar vaga", tags = {"Recurso para editar uma vaga."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Recrutador editado com sucesso.", response = VagaResponseDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhuma vaga encontrada.", response = ErrorDTO.class),
@@ -87,7 +87,7 @@ public class VagaController {
 		return vagaService.update(vagaDTO, id);
 	}
 	
-	@ApiOperation(notes = "Endipoint para remover uma vaga.", value = "Deletar vaga", tags = {"Recurso para deletar uma vaga."})
+	@ApiOperation(notes = "Endpoint para remover uma vaga.", value = "Deletar vaga", tags = {"Recurso para deletar uma vaga."})
 	@ApiResponses({
 	               @ApiResponse(code = 200, message = "Vaga deletada com sucesso.", response = MessageSucessoDTO.class),
 	               @ApiResponse(code = 404, message = "Nenhuma vaga encontrada.", response = ErrorDTO.class),
