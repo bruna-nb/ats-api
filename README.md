@@ -81,6 +81,14 @@ Este comando fará com que os quatro microsserviços e o postgres sejas executad
 - 8083
 - 5432
 
+Caso este comando não funcione, pode ser que o docker não esteja respeitando as dependências entre os microsserviços e o banco de dados. Neste caso, deve-se parar a execução deste container e executar um microsserviço por vez, seguindo esta sequência de comandos (em janelas de cmd diferentes, porém só executando o próximo quando o anterior já estiver rodando):
+
+- `docker-compose up postgres`
+- `docker-compose up candidato`
+- `docker-compose up recrutador`
+- `docker-compose up vaga`
+- `docker-compose up ats`
+
 ## Documentação da aplicação
 Assim que os serviços estiverem todos rodando, a documentação de cada uma das aplicações pode ser encontrada em: http://localhost:PORT/swagger-ui.html, conforme as portas listadas abaixo.
 
