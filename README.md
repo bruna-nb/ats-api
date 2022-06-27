@@ -50,22 +50,22 @@ O Postgres é o banco de dados utilizado pela aplicação. Para fazer o pull da 
 #### candidato-api
 É o microsserviço responsável por gerenciar os candidatos na aplicação. Para fazer o pull da imagem, basta digitar o seguinte comando no cmd: 
 
-`INSERIR COMANDO AQUI`
+`docker pull brunanb/candidato-api`
 
 #### recrutador-api
 É o microsserviço responsável por gerenciar os recrutadores na aplicação. Para fazer o pull da imagem, basta digitar o seguinte comando no cmd: 
 
-`INSERIR COMANDO AQUI`
+`docker pull brunanb/recrutador-api`
 
 #### vaga-api
 É o microsserviço responsável por gerenciar as vagas na aplicação. Para fazer o pull da imagem, basta digitar o seguinte comando no cmd: 
 
-`INSERIR COMANDO AQUI`
+`docker pull brunanb/vaga-api`
 
 #### ats-main-api
 É o microsserviço responsável por gerenciar as candidaturas/aplicações de candidatos a vagas na aplicação. Para fazer o pull da imagem, basta digitar o seguinte comando no cmd: 
 
-`INSERIR COMANDO AQUI`
+`docker pull brunanb/ats-main-api`
 
 ### Colocar serviços no ar usando docker-compose
 Neste repositório existe uma pasta chamada [docker](https://github.com/bruna-nb/ats-api/tree/main/docker) onde contém um arquivo de nome [docker-compose.yml](https://github.com/bruna-nb/ats-api/blob/main/docker/docker-compose.yml). 
