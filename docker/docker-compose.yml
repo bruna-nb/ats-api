@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgres
 
   candidato:
-    image: ats/candidatos-api
+    image: ats/candidato-api
     ports:
       - "8080:8080"
     environment:
@@ -20,3 +20,39 @@ services:
       POSTGRES_PASSWORD: postgres
     depends_on:
       - postgres
+
+  recrutador:
+    image: ats/recrutador-api
+    ports:
+      - "8081:8081"
+    environment:
+      POSTGRES_URL: jdbc:postgresql://postgres:5432/dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    depends_on:
+      - postgres
+
+  vaga:
+    image: ats/vaga-api
+    ports:
+      - "8082:8082"
+    environment:
+      POSTGRES_URL: jdbc:postgresql://postgres:5432/dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    depends_on:
+      - postgres
+      - recrutador
+
+  ats:
+    image: ats/ats-main-api
+    ports:
+      - "8083:8083"
+    environment:
+      POSTGRES_URL: jdbc:postgresql://postgres:5432/dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    depends_on:
+      - postgres
+      - candidato
+      - vaga
