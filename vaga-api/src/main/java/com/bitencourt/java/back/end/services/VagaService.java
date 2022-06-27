@@ -13,6 +13,7 @@ import com.bitencourt.java.back.end.domain.dtos.MessageSucessoDTO;
 import com.bitencourt.java.back.end.domain.dtos.requests.VagaRequestDTO;
 import com.bitencourt.java.back.end.domain.dtos.responses.VagaResponseDTO;
 import com.bitencourt.java.back.end.domain.entities.Vaga;
+import com.bitencourt.java.back.end.exceptions.CampoErrorSchemaException;
 import com.bitencourt.java.back.end.exceptions.VagaNotFoundException;
 import com.bitencourt.java.back.end.repositories.VagaRepository;
 import com.bitencourt.java.back.end.utils.MergeUtil;
@@ -22,6 +23,9 @@ public class VagaService {
 	
 	@Autowired
 	private VagaRepository vagaRepository;
+	
+	@Autowired
+	private RecrutadorService recrutadorService;
 	
 	private static final String REMOVIDO_COM_SUCESSO_MENSAGEM = "{0} removida com sucesso";
 	
@@ -37,6 +41,11 @@ public class VagaService {
 	}
 	
 	public VagaResponseDTO save(VagaRequestDTO vagaRequest, long idRecrutador) {
+		
+		if (recrutadorService.getRecrutadorById(idRecrutador) == null) {
+			throw new CampoErrorSchemaException("vaga", "idRecrutador");
+		}
+		
 		Vaga vaga = Vaga.convert(vagaRequest);
 		vaga.setIdRecrutador(idRecrutador);
 		Vaga vagaSalva = vagaRepository.save(vaga);
