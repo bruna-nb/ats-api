@@ -139,6 +139,13 @@ public class CandidatoController {
 		
 	}
 	
+	@ApiOperation(notes = "Endpoint para fazer o login de um candidato. Apenas recebe dados de login e retorna um Candidato caso os dados estejam corretos.", value = "Login candidato", tags = {"Recurso para fazer login."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Login efetuado com sucesso.", response = CandidatoResponseDTO.class),
+	               @ApiResponse(code = 404, message = "Nenhum candidato encontrado.", response = ErrorDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })	
 	@PutMapping("/login")
 	CandidatoResponseDTO loginCandidato(
 			@ApiParam(value = "email de login do recrutador ou candidato", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "email") String email,

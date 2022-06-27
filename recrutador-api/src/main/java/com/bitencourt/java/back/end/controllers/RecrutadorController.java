@@ -92,6 +92,13 @@ public class RecrutadorController {
 		return recrutadorService.delete(id);
 	}
 	
+	@ApiOperation(notes = "Endpoint para fazer o login de um recrutador. Apenas recebe dados de login e retorna um Recrutador caso os dados estejam corretos.", value = "Login recrutador", tags = {"Recurso para fazer login."})
+	@ApiResponses({
+	               @ApiResponse(code = 200, message = "Login efetuado com sucesso.", response = RecrutadorResponseDTO.class),
+	               @ApiResponse(code = 404, message = "Nenhum recrutador encontrado.", response = ErrorDTO.class),
+	               @ApiResponse(code = 400, message = "Requisição inválida.", response = ErrorDTO.class),
+	               @ApiResponse(code = 500, message = "O serviço não está disponível no momento.", response = ErrorDTO.class)
+	               })	
 	@PutMapping("/recrutador/login")
 	RecrutadorResponseDTO loginRecrutador(
 			@ApiParam(value = "email de login do recrutador", required = true, allowEmptyValue = false, allowMultiple = false) @RequestHeader(value = "email") String email,
